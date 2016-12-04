@@ -78,23 +78,29 @@ void setColumn(vector< vector<char> > &grid, int x, char token){
 	int nxtRow = getNextRow(grid, x);
 	if(!isColEmpty(nxtRow)) grid[nxtRow][x] = token; // set the string.
 }
+bool isPlayerPiece(char piece, bool t){
+	return (getPlayerToken(t) == piece);
+}
 bool hasDiagonalWon(vector< vector<char> > &grid, int x, int y){
 	// this function will be part of checking if a game has been won,
 	// more specifically, it will check if the game has been won diagonallly.
-	
+	int max = grid.size() - 1;
+	bool diagonalWon = true; // default, a diagonal has been won, will be used to keep track
+	int i = 1; // will be used to traverse through the grid.
+	return diagonalWon;
 }
 void run(vector< vector<char> > &grid){
 	int col;
 	for(int i = 0; i < 10; ++i){
-	if(whoseTurn()) cout << "2nd player go!\n";
-	else cout << "1st player go!\n";
-	do{
-		cout << "Where would you like to drop a piece? (column)\n";
-		cin >> col;
-	}while(col < 0 || col > (BOARDSZ - 1));
-	setColumn(grid,col,getPlayerToken(whoseTurn()));
-	printMatrix(grid);
-	switchTurn();
+		if(whoseTurn()) cout << "2nd player go!\n";
+		else cout << "1st player go!\n";
+		do{
+			cout << "Where would you like to drop a piece? (column)\n";
+			cin >> col;
+		}while(col < 0 || col > (BOARDSZ - 1));
+		setColumn(grid,col,getPlayerToken(whoseTurn()));
+		printMatrix(grid);
+		switchTurn();
 	}
 }
 

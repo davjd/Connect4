@@ -78,10 +78,10 @@ void setColumn(vector< vector<char> > &grid, int x, char token){
 	int nxtRow = getNextRow(grid, x);
 	if(!isColEmpty(nxtRow)) grid[nxtRow][x] = token; // set the string.
 }
-bool checkDiagonal(vector< vector<char> > &grid, int x, int y){
-	// this will be part of checking if a game has been won
-	// we will check for diagonals.
-	//
+bool hasDiagonalWon(vector< vector<char> > &grid, int x, int y){
+	// this function will be part of checking if a game has been won,
+	// more specifically, it will check if the game has been won diagonallly.
+	
 }
 void run(vector< vector<char> > &grid){
 	int col;
